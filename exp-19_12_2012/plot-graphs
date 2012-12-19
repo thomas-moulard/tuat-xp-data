@@ -1,0 +1,36 @@
+#!/bin/sh
+#set -e
+
+# Columns counting makes the assumption the additional
+# accelerometer is plugged in.
+# I.e. 151-156 are accelerometers values.
+# 151-153 chest
+# 154-156 foot
+
+xps=`find -mindepth 1 -maxdepth 1 -type d`
+xps=tilt1
+cols_astate=182
+cols_rstate=104
+
+for xp in $xps; do
+for col in `seq $cols_astate`; do
+ gnuplot <<EOF
+set terminal png
+set output "$xp/astate-$col.png"
+set xlabel "seconds"
+f="$xp/tuat-astate.log"
+plot f u 181:$col w l title 'raw data from log, column $col'
+EOF
+done
+
+for col in `seq $cols_rstate`; do
+ gnuplot <<EOF
+set terminal png
+set output "$xp/rstate-$col.png"
+set xlabel "seconds"
+f="$xp/tuat-rstate.log"
+plot f u 103:$col w l title 'raw data from log, column $col'
+EOF
+done
+
+done
