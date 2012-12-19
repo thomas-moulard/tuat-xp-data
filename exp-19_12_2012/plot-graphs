@@ -8,6 +8,7 @@
 # 154-156 foot
 
 xps=`find -mindepth 1 -maxdepth 1 -type d`
+xps=step_walk
 cols_astate=182
 cols_rstate=104
 
