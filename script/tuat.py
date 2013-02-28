@@ -3,7 +3,7 @@ import hstsetup
 
 from hrp import *
 
-motionId = 14
+motionId = 25
 motions = {
     1:  "myrand",
     2:  "walk_forward",
@@ -25,6 +25,11 @@ motions = {
     18: "tilt4",
     19: "tilt5",
     20: "tilt6",
+    21: "manual_right_roll",
+    22: "manual_left_roll",
+    23: "manual_right_pitch",
+    24: "manual_left_pitch",
+    25: "manual_both_pitch",
     }
 
 if not motions.has_key(motionId):
