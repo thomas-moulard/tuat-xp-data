@@ -47,7 +47,7 @@ ms.load("logplugin")
 log = LoggerPluginHelper.narrow(ms.create("logplugin","log",""))
 seq.start()
 # Resize logger buffer to properly store longuer sequences.
-log.sendMsg(":max-length 1000")
+log.sendMsg(":max-length 10000")
 log.add("kf")
 log.start()
 seq.goHalfSitting(3)
