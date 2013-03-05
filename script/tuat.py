@@ -3,7 +3,7 @@ import hstsetup
 
 from hrp import *
 
-motionId = 25
+motionId = 21
 motions = {
     1:  "myrand",
     2:  "walk_forward",
@@ -55,11 +55,12 @@ seq.waitInterpolation()
 hstsetup.stsetup(st)
 kf.start()
 st.start()
-waitInputConfirm("put the robot down. start walking")
+waitInputConfirm("put the robot down. start motion")
 seq.loadPattern("../etc/tuat/%(1)d.%(2)s/%(2)s" \
                     % {'1': motionId, '2': motions[motionId]},
                 1.0)
 seq.waitInterpolation()
+waitInputConfirm("click to log") # make sure we wait as long as necessary
 log.stop()
 log.save("tuat")
 print("saved")
